@@ -19,4 +19,5 @@ try:
     if rc != 0:
         print("git bisect run finished (non-zero exit). Check log above for the first bad commit.")
 finally:
+
     os.system("git bisect reset")
