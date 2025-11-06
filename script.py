@@ -1,7 +1,7 @@
 # myscript.py
 import os, sys, subprocess, shlex
 
-TEST_CMD = 'bash -lc "python manage.py test -q"'   
+TEST_CMD = 'bash -lc "python manage.py test"'   
 
 def run(cmd, check=True, capture=False):
     print("+", cmd)
