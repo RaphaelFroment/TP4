@@ -1,0 +1,30 @@
+name: Python package
+
+on: [push]
+
+
+env:
+  BAD_HASH: 1d8748281263e8e7efe7b85c828cd3f600d96bfc   
+  GOOD_HASH: a9f20e8a511665d81967342e7829e737395944d3  
+  DJANGO_SETTINGS_MODULE: budgetproject.settings       
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0   
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Install packages
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run git bisect
+        run: python script.py
