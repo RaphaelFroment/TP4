@@ -44,5 +44,6 @@ try:
     
     _, rc = run(f"git bisect run {cmd}", check=False)
     print("git bisect run finished with code:", rc)
+    
 finally:
     run("git bisect reset", check=False)
